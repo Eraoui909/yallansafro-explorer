@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import DashboardSidebarLayout from "@/components/layout/DashboardSidebar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
@@ -43,22 +42,21 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-
-      <main className="flex-1 py-12 bg-muted/30">
-        <div className="container">
+    <DashboardSidebarLayout variant="traveler">
+      <div className="space-y-8">
+        <div>
           <div className="mb-8">
             <h1 className="text-4xl font-bold mb-2">My Dashboard</h1>
             <p className="text-lg text-muted-foreground">
               Welcome back! Here's your travel overview
             </p>
           </div>
+        </div>
 
-          {userRole === "traveler" && (
-            <>
-              {/* Quick Stats */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        {userRole === "traveler" && (
+          <>
+            {/* Quick Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                 <Card>
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
@@ -106,10 +104,10 @@ const Dashboard = () => {
                     </div>
                   </CardContent>
                 </Card>
-              </div>
+            </div>
 
-              {/* Main Content */}
-              <Tabs defaultValue="bookings" className="space-y-6">
+            {/* Main Content */}
+            <Tabs defaultValue="bookings" className="space-y-6">
                 <TabsList>
                   <TabsTrigger value="bookings">My Bookings</TabsTrigger>
                   <TabsTrigger value="favorites">Favorites</TabsTrigger>
@@ -228,11 +226,8 @@ const Dashboard = () => {
               </Tabs>
             </>
           )}
-        </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </DashboardSidebarLayout>
   );
 };
 

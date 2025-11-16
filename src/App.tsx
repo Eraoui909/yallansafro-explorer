@@ -11,6 +11,8 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import TravelBuilder from "./pages/TravelBuilder";
 import NotFound from "./pages/NotFound";
+import AgencyDashboard from "./component/pages/AgencyDashboard";
+import GuideDashboard from "./component/pages/GuideDashboard";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +29,8 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/agency-dashboard" element={<AgencyDashboard />} />
+          <Route path="/guide-dashboard" element={<GuideDashboard />} />
           <Route path="/travel-builder" element={<TravelBuilder />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
